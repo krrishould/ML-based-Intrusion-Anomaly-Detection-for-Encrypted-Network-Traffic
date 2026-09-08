@@ -1,0 +1,532 @@
+{
+  "source_filter": "iscx_vpn2016",
+  "flow_only": {
+    "fused": {
+      "accuracy": 0.9900891972249752,
+      "balanced_accuracy": 0.9900891972249752,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mcc": 0.0,
+      "false_positive_rate": 0.009910802775024777,
+      "false_negative_rate": 0.0,
+      "true_positives": 0,
+      "false_positives": 10,
+      "true_negatives": 999,
+      "false_negatives": 0
+    },
+    "stage1_only": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mcc": 0.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0,
+      "true_positives": 0,
+      "false_positives": 0,
+      "true_negatives": 1009,
+      "false_negatives": 0
+    },
+    "stage2_only": {
+      "accuracy": 0.9900891972249752,
+      "balanced_accuracy": 0.9900891972249752,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mcc": 0.0,
+      "false_positive_rate": 0.009910802775024777,
+      "false_negative_rate": 0.0,
+      "true_positives": 0,
+      "false_positives": 10,
+      "true_negatives": 999,
+      "false_negatives": 0
+    },
+    "family_classification": {
+      "accuracy": 0.8889990089197225,
+      "macro_f1": 0.8548189590459625,
+      "weighted_f1": 0.8900987467110839,
+      "per_class": {
+        "chat": {
+          "precision": 0.9259259259259259,
+          "recall": 0.9398496240601504,
+          "f1-score": 0.9328358208955224,
+          "support": 133.0
+        },
+        "email": {
+          "precision": 0.9728506787330317,
+          "recall": 0.9772727272727273,
+          "f1-score": 0.9750566893424036,
+          "support": 220.0
+        },
+        "streaming": {
+          "precision": 0.5882352941176471,
+          "recall": 0.6306306306306306,
+          "f1-score": 0.6086956521739131,
+          "support": 111.0
+        },
+        "voip": {
+          "precision": 0.9119850187265918,
+          "recall": 0.8935779816513761,
+          "f1-score": 0.9026876737720111,
+          "support": 545.0
+        },
+        "accuracy": 0.8889990089197225,
+        "macro avg": {
+          "precision": 0.8497492293757991,
+          "recall": 0.8603327409037211,
+          "f1-score": 0.8548189590459625,
+          "support": 1009.0
+        },
+        "weighted avg": {
+          "precision": 0.8914779487834158,
+          "recall": 0.8889990089197225,
+          "f1-score": 0.8900987467110839,
+          "support": 1009.0
+        }
+      }
+    },
+    "per_family_detection_rate": {
+      "chat": 0.022556390977443608,
+      "email": 0.00909090909090909,
+      "streaming": 0.009009009009009009,
+      "voip": 0.007339449541284404
+    },
+    "alert_reason_counts": {
+      "benign": 999,
+      "anomalous": 10
+    },
+    "stage2_operating_points": [
+      {
+        "percentile": 90.0,
+        "threshold": 0.074728,
+        "recall": 0.0,
+        "precision": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.1001
+      },
+      {
+        "percentile": 95.0,
+        "threshold": 0.116177,
+        "recall": 0.0,
+        "precision": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.0505
+      },
+      {
+        "percentile": 97.5,
+        "threshold": 0.156005,
+        "recall": 0.0,
+        "precision": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.0258
+      },
+      {
+        "percentile": 99.0,
+        "threshold": 0.327158,
+        "recall": 0.0,
+        "precision": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.0109
+      },
+      {
+        "percentile": 99.5,
+        "threshold": 0.68517,
+        "recall": 0.0,
+        "precision": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.0059
+      },
+      {
+        "percentile": 99.9,
+        "threshold": 1.687115,
+        "recall": 0.0,
+        "precision": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.002
+      }
+    ]
+  },
+  "flow_plus_tls": {
+    "fused": {
+      "accuracy": 0.9881070366699702,
+      "balanced_accuracy": 0.9881070366699702,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mcc": 0.0,
+      "false_positive_rate": 0.011892963330029732,
+      "false_negative_rate": 0.0,
+      "true_positives": 0,
+      "false_positives": 12,
+      "true_negatives": 997,
+      "false_negatives": 0
+    },
+    "stage1_only": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mcc": 0.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0,
+      "true_positives": 0,
+      "false_positives": 0,
+      "true_negatives": 1009,
+      "false_negatives": 0
+    },
+    "stage2_only": {
+      "accuracy": 0.9881070366699702,
+      "balanced_accuracy": 0.9881070366699702,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mcc": 0.0,
+      "false_positive_rate": 0.011892963330029732,
+      "false_negative_rate": 0.0,
+      "true_positives": 0,
+      "false_positives": 12,
+      "true_negatives": 997,
+      "false_negatives": 0
+    },
+    "family_classification": {
+      "accuracy": 0.889990089197225,
+      "macro_f1": 0.854332599974849,
+      "weighted_f1": 0.8905960736399887,
+      "per_class": {
+        "chat": {
+          "precision": 0.9259259259259259,
+          "recall": 0.9398496240601504,
+          "f1-score": 0.9328358208955224,
+          "support": 133.0
+        },
+        "email": {
+          "precision": 0.9817351598173516,
+          "recall": 0.9772727272727273,
+          "f1-score": 0.979498861047836,
+          "support": 220.0
+        },
+        "streaming": {
+          "precision": 0.591304347826087,
+          "recall": 0.6126126126126126,
+          "f1-score": 0.6017699115044248,
+          "support": 111.0
+        },
+        "voip": {
+          "precision": 0.9074074074074074,
+          "recall": 0.8990825688073395,
+          "f1-score": 0.9032258064516129,
+          "support": 545.0
+        },
+        "accuracy": 0.889990089197225,
+        "macro avg": {
+          "precision": 0.851593210244193,
+          "recall": 0.8572043831882074,
+          "f1-score": 0.854332599974849,
+          "support": 1009.0
+        },
+        "weighted avg": {
+          "precision": 0.8912801813218021,
+          "recall": 0.889990089197225,
+          "f1-score": 0.8905960736399887,
+          "support": 1009.0
+        }
+      }
+    },
+    "per_family_detection_rate": {
+      "chat": 0.022556390977443608,
+      "email": 0.00909090909090909,
+      "streaming": 0.009009009009009009,
+      "voip": 0.011009174311926606
+    },
+    "alert_reason_counts": {
+      "benign": 997,
+      "anomalous": 12
+    },
+    "stage2_operating_points": [
+      {
+        "percentile": 90.0,
+        "threshold": 0.09036,
+        "recall": 0.0,
+        "precision": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.1001
+      },
+      {
+        "percentile": 95.0,
+        "threshold": 0.149102,
+        "recall": 0.0,
+        "precision": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.0505
+      },
+      {
+        "percentile": 97.5,
+        "threshold": 0.306538,
+        "recall": 0.0,
+        "precision": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.0258
+      },
+      {
+        "percentile": 99.0,
+        "threshold": 0.64241,
+        "recall": 0.0,
+        "precision": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.0109
+      },
+      {
+        "percentile": 99.5,
+        "threshold": 1.357553,
+        "recall": 0.0,
+        "precision": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.0059
+      },
+      {
+        "percentile": 99.9,
+        "threshold": 2.400114,
+        "recall": 0.0,
+        "precision": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.002
+      }
+    ]
+  },
+  "ablation_basis": "traffic-family classification (Stage 1)",
+  "comparison": [
+    {
+      "metric": "accuracy",
+      "flow_only_baseline": 0.889,
+      "flow_plus_tls": 0.89,
+      "delta": 0.001,
+      "relative_%": 0.11
+    },
+    {
+      "metric": "macro_f1",
+      "flow_only_baseline": 0.8548,
+      "flow_plus_tls": 0.8543,
+      "delta": -0.0005,
+      "relative_%": -0.06
+    },
+    {
+      "metric": "weighted_f1",
+      "flow_only_baseline": 0.8901,
+      "flow_plus_tls": 0.8906,
+      "delta": 0.0005,
+      "relative_%": 0.06
+    }
+  ],
+  "latency": {
+    "batch_1": {
+      "total_ms": 51.899,
+      "per_flow_ms": 51.8993,
+      "flows_per_second": 19.3
+    },
+    "batch_32": {
+      "total_ms": 38.749,
+      "per_flow_ms": 1.2109,
+      "flows_per_second": 825.8
+    },
+    "batch_256": {
+      "total_ms": 44.75,
+      "per_flow_ms": 0.1748,
+      "flows_per_second": 5720.7
+    }
+  },
+  "example_explanations": [
+    {
+      "true_label": "voip",
+      "summary": "Does not match any known traffic profile (13.3 sigma from normal) - possible unseen threat. Driven by: unusually high bwd pkt len max (17,374.0); unusually high ack count (385.0); unusually high PSH flag count (187.0).",
+      "top_features": [
+        {
+          "feature": "bwd_pkt_len_max",
+          "label": "bwd pkt len max",
+          "weight": 38.28703793759143,
+          "deviation_sigma": 38.28703793759143,
+          "direction": "high",
+          "value": 17374.0
+        },
+        {
+          "feature": "ack_count",
+          "label": "ack count",
+          "weight": 26.43866345904544,
+          "deviation_sigma": 26.43866345904544,
+          "direction": "high",
+          "value": 385.0
+        },
+        {
+          "feature": "psh_count",
+          "label": "PSH flag count",
+          "weight": 21.488973994696384,
+          "deviation_sigma": 21.488973994696384,
+          "direction": "high",
+          "value": 187.0
+        },
+        {
+          "feature": "pkt_len_var",
+          "label": "pkt len var",
+          "weight": 13.220861286552223,
+          "deviation_sigma": 13.220861286552223,
+          "direction": "high",
+          "value": 1315667.9812229434
+        }
+      ]
+    },
+    {
+      "true_label": "voip",
+      "summary": "Does not match any known traffic profile (3.4 sigma from normal) - possible unseen threat. Driven by: unusually high fwd pkt len max (4,420.0); unusually high fwd pkt len std (1,018.3); unusually high TLS handshake duration (99.7).",
+      "top_features": [
+        {
+          "feature": "fwd_pkt_len_max",
+          "label": "fwd pkt len max",
+          "weight": 9.734725264701215,
+          "deviation_sigma": 9.734725264701215,
+          "direction": "high",
+          "value": 4420.0
+        },
+        {
+          "feature": "fwd_pkt_len_std",
+          "label": "fwd pkt len std",
+          "weight": 6.7624187551931945,
+          "deviation_sigma": 6.7624187551931945,
+          "direction": "high",
+          "value": 1018.325797979232
+        },
+        {
+          "feature": "handshake_duration_ms",
+          "label": "TLS handshake duration",
+          "weight": 6.623972891251172,
+          "deviation_sigma": 6.623972891251172,
+          "direction": "high",
+          "value": 99.7018814086914
+        },
+        {
+          "feature": "has_sni",
+          "label": "has sni",
+          "weight": 6.244997998398387,
+          "deviation_sigma": 6.244997998398387,
+          "direction": "high",
+          "value": 1.0
+        }
+      ]
+    },
+    {
+      "true_label": "chat",
+      "summary": "Does not match any known traffic profile (3.8 sigma from normal) - possible unseen threat. Driven by: unusually high average server packet size (1,360.3); unusually high bwd segment size avg (1,360.3); unusually high download/upload byte ratio (44.4).",
+      "top_features": [
+        {
+          "feature": "bwd_pkt_len_mean",
+          "label": "average server packet size",
+          "weight": 6.846896336997347,
+          "deviation_sigma": 6.846896336997347,
+          "direction": "high",
+          "value": 1360.2826086956522
+        },
+        {
+          "feature": "bwd_segment_size_avg",
+          "label": "bwd segment size avg",
+          "weight": 6.846896336997347,
+          "deviation_sigma": 6.846896336997347,
+          "direction": "high",
+          "value": 1360.2826086956522
+        },
+        {
+          "feature": "down_up_byte_ratio",
+          "label": "download/upload byte ratio",
+          "weight": 5.919126510329209,
+          "deviation_sigma": 5.919126510329209,
+          "direction": "high",
+          "value": 44.40951029098652
+        },
+        {
+          "feature": "pkt_len_mean",
+          "label": "average packet size",
+          "weight": 5.615425214457817,
+          "deviation_sigma": 5.615425214457817,
+          "direction": "high",
+          "value": 914.0285714285715
+        }
+      ]
+    },
+    {
+      "true_label": "chat",
+      "summary": "Does not match any known traffic profile (3.3 sigma from normal) - possible unseen threat. Driven by: unusually high has alpn (1.0); unusually high HTTP/2 negotiated (1.0); unusually high hostname length (27.0).",
+      "top_features": [
+        {
+          "feature": "has_alpn",
+          "label": "has alpn",
+          "weight": 14.106735979665862,
+          "deviation_sigma": 14.106735979665862,
+          "direction": "high",
+          "value": 1.0
+        },
+        {
+          "feature": "alpn_is_h2",
+          "label": "HTTP/2 negotiated",
+          "weight": 14.106735979665862,
+          "deviation_sigma": 14.106735979665862,
+          "direction": "high",
+          "value": 1.0
+        },
+        {
+          "feature": "sni_length",
+          "label": "hostname length",
+          "weight": 9.036625621055807,
+          "deviation_sigma": 9.036625621055807,
+          "direction": "high",
+          "value": 27.0
+        },
+        {
+          "feature": "ja3_rarity",
+          "label": "rarity of the TLS fingerprint",
+          "weight": 9.023797213055325,
+          "deviation_sigma": 9.023797213055325,
+          "direction": "high",
+          "value": 273.0
+        }
+      ]
+    },
+    {
+      "true_label": "voip",
+      "summary": "Does not match any known traffic profile (3.4 sigma from normal) - possible unseen threat. Driven by: unusually high pkt len var (1,289,686.9); unusually high digits in the hostname (0.0); unusually high fwd pkt len max (4,909.0).",
+      "top_features": [
+        {
+          "feature": "pkt_len_var",
+          "label": "pkt len var",
+          "weight": 12.952742719402801,
+          "deviation_sigma": 12.952742719402801,
+          "direction": "high",
+          "value": 1289686.871052632
+        },
+        {
+          "feature": "sni_digit_ratio",
+          "label": "digits in the hostname",
+          "weight": 12.759053080410501,
+          "deviation_sigma": 12.759053080410501,
+          "direction": "high",
+          "value": 0.0476
+        },
+        {
+          "feature": "fwd_pkt_len_max",
+          "label": "fwd pkt len max",
+          "weight": 10.871924206508943,
+          "deviation_sigma": 10.871924206508943,
+          "direction": "high",
+          "value": 4909.0
+        },
+        {
+          "feature": "fwd_pkt_len_std",
+          "label": "fwd pkt len std",
+          "weight": 10.839872419705161,
+          "deviation_sigma": 10.839872419705161,
+          "direction": "high",
+          "value": 1596.026689765696
+        }
+      ]
+    }
+  ]
+}

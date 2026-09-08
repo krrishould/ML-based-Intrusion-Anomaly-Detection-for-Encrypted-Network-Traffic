@@ -252,11 +252,21 @@ that we do not know, and the imputer handles it explicitly.
 
 * TLS fingerprints can be spoofed or randomised. The synthetic data models this
   explicitly, and `ja3_is_known_browser` is treated as a hint, never a verdict.
-* CTU-13 is netflow-only. Of the 65 model features it can populate just 31 —
-  no inter-arrival distributions, no TCP flag counts, and **no TLS handshake
-  metadata at all**. The dual-signal claim therefore cannot currently be tested
-  on real data; doing so needs the ISCX VPN-nonVPN or CIC-Darknet pcaps, which
-  is the single most valuable next step for the project.
+* **The dual-signal claim does not yet replicate on real data.** On synthetic
+  traffic (76% of flows carry TLS metadata) adding handshake features improves
+  F1 by 6.1% and cuts FPR by 42%. On ISCX VPN-nonVPN2016 the same ablation
+  moves macro-F1 by **-0.0005** — no measurable effect. The cause is coverage,
+  not the method: only 337 of 5,043 ISCX flows (6.7%) contain a TLS handshake
+  at all, because NonVPN-PCAPs-01 is 2015 chat/email/audio traffic, much of it
+  not TLS. Validating the claim needs TLS-rich captures (browsing/streaming
+  archives, or modern traffic). This is the single most valuable next step.
+* CTU-13 is netflow-only (31 of 65 features, no TLS metadata) and
+  CIC-Darknet2020 ships as CICFlowMeter CSV (no TLS metadata either), so
+  neither can support the ablation regardless of size.
+* **Neither ISCX nor CIC-Darknet contains attacks.** ISCX labels traffic *type*;
+  CIC-Darknet's positive class is Tor/VPN, i.e. anonymised traffic, not
+  intrusion. CTU-13 is the only source here with genuinely malicious traffic.
+  Scores from those two must not be quoted as attack-detection performance.
 * The zero-day experiment shows Stage 2 adding a **modest** 4–8 percentage
   points of unique coverage on withheld families. Stage 1 generalises across
   attack families better than expected, which shrinks the headroom. This is

@@ -116,13 +116,34 @@ def run_ablation(cfg: Config, df: pd.DataFrame, paths: Paths,
                      max_rows=max_rows, model_dir=paths.models)
     full_results = evaluate_detector(full.detector, full.test_df)
 
-    table = M.compare(baseline_results["fused"], full_results["fused"])
-    log.info("\n%s", table.to_string(index=False))
+    # A source with no attacks (ISCX VPN-nonVPN2016 is traffic-type only) has a
+    # degenerate binary target - every row is class 0 - so precision/recall/AUC
+    # are undefined and comparing them would print a table of zeros. There the
+    # meaningful question is whether TLS metadata improves the *traffic-family*
+    # classification, so the ablation switches to the multi-class metrics.
+    has_both_classes = (
+        full.test_df[schema.BINARY_TARGET_COLUMN].astype(int).nunique() > 1)
+
+    if has_both_classes:
+        table = M.compare(baseline_results["fused"], full_results["fused"])
+        basis = "binary detection (fused)"
+    else:
+        log.info("Single-class target on this source - comparing traffic-family "
+                 "classification instead of binary detection")
+        table = M.compare(
+            baseline_results["family_classification"],
+            full_results["family_classification"],
+            keys=("accuracy", "macro_f1", "weighted_f1"),
+        )
+        basis = "traffic-family classification (Stage 1)"
+
+    log.info("Ablation basis: %s\n%s", basis, table.to_string(index=False))
     table.to_csv(paths.metrics / "ablation_flow_vs_flow_tls.csv", index=False)
 
     return {
         "flow_only": baseline_results,
         "flow_plus_tls": full_results,
+        "ablation_basis": basis,
         "comparison": table.to_dict(orient="records"),
         "_artefacts": full,
     }

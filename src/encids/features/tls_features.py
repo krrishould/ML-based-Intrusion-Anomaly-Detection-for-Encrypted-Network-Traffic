@@ -325,12 +325,23 @@ def count_certificates(payload: bytes) -> int:
         return 0
 
 
-def ja3_bucket(ja3_hash: str, n_buckets: int = 256) -> int:
+def ja3_bucket(fingerprint: str, n_buckets: int = 256) -> int:
     """Hashing trick: map an unbounded fingerprint space to a fixed feature.
 
-    Using the raw hash as a categorical would explode dimensionality and would
-    not generalise at all to fingerprints unseen during training.
+    Using the raw fingerprint as a categorical would explode dimensionality and
+    would not generalise at all to fingerprints unseen during training.
+
+    Accepts any fingerprint encoding. JA3/JA3S are 32-char hex MD5 digests, but
+    NFStream's ``client_fingerprint`` is a JA4 string such as
+    ``t12d2110h1_f51103c65f73_b0efb93b7816`` - assuming hex here raised
+    ``ValueError: invalid literal for int() with base 16`` mid-way through a
+    dataset build. Non-hex values are digested first so any scheme buckets
+    deterministically.
     """
-    if not ja3_hash:
+    if not fingerprint:
         return 0
-    return int(ja3_hash[:8], 16) % n_buckets
+    head = fingerprint[:8]
+    try:
+        return int(head, 16) % n_buckets
+    except ValueError:
+        return int(hashlib.md5(fingerprint.encode()).hexdigest()[:8], 16) % n_buckets

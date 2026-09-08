@@ -179,7 +179,20 @@ def pcap_to_dataframe(
     """Convert a single pcap into a flow-feature DataFrame."""
     pcap = Path(pcap)
     if backend == "auto":
-        backend = "nfstream" if _nfstream_available() else "native"
+        # Native is the default even when NFStream is installed, and the reason
+        # is fingerprint consistency rather than preference.
+        #
+        # NFStream 6.6 fills `client_fingerprint` with a **JA4** string
+        # (`t12d2110h1_f51103c65f73_...`), while the live capture path computes
+        # **JA3** with this project's own parser. Training on JA4 and then
+        # scoring live traffic described by JA3 means `ja3_bucket` and
+        # `ja3_rarity` are drawn from two different fingerprint spaces - the
+        # feature would look healthy and carry no transferable signal.
+        #
+        # Native keeps offline training and live scoring on one scheme. Pass
+        # backend="nfstream" explicitly for a faster run when TLS features are
+        # not being used (it is several times quicker on large pcaps).
+        backend = "native"
 
     if backend == "nfstream":
         try:

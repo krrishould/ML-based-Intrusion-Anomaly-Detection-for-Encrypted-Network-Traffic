@@ -1,0 +1,495 @@
+{
+  "source_filter": "cic_darknet2020",
+  "flow_plus_tls": {
+    "fused": {
+      "accuracy": 0.9670249145090376,
+      "balanced_accuracy": 0.9578684554695007,
+      "precision": 0.8747373949579832,
+      "recall": 0.9438934542363275,
+      "f1": 0.9080005451819545,
+      "mcc": 0.8889023109877081,
+      "false_positive_rate": 0.028156543297326014,
+      "false_negative_rate": 0.05610654576367243,
+      "true_positives": 3331,
+      "false_positives": 477,
+      "true_negatives": 16464,
+      "false_negatives": 198,
+      "roc_auc": 0.992970369101746,
+      "pr_auc": 0.9645474691866395
+    },
+    "stage1_only": {
+      "accuracy": 0.9753786028334147,
+      "balanced_accuracy": 0.9625788760415296,
+      "precision": 0.9165519140732581,
+      "recall": 0.9430433550580901,
+      "f1": 0.929608938547486,
+      "mcc": 0.9148288871975133,
+      "false_positive_rate": 0.01788560297503099,
+      "false_negative_rate": 0.05695664494190989,
+      "true_positives": 3328,
+      "false_positives": 303,
+      "true_negatives": 16638,
+      "false_negatives": 201,
+      "roc_auc": 0.9962257121957896,
+      "pr_auc": 0.9834791161701583
+    },
+    "stage2_only": {
+      "accuracy": 0.8308744504152418,
+      "balanced_accuracy": 0.5300197011651242,
+      "precision": 0.5773672055427251,
+      "recall": 0.0708415981864551,
+      "f1": 0.12619888944977284,
+      "mcc": 0.15760551610846943,
+      "false_positive_rate": 0.010802195856206835,
+      "false_negative_rate": 0.9291584018135449,
+      "true_positives": 250,
+      "false_positives": 183,
+      "true_negatives": 16758,
+      "false_negatives": 3279,
+      "roc_auc": 0.6642446709981698,
+      "pr_auc": 0.3190518307846457
+    },
+    "family_classification": {
+      "accuracy": 0.8380068392769907,
+      "macro_f1": 0.7170362483823368,
+      "weighted_f1": 0.841038506945561,
+      "per_class": {
+        "audio_streaming": {
+          "precision": 0.6734539969834088,
+          "recall": 0.7380165289256199,
+          "f1-score": 0.7042586750788643,
+          "support": 1210.0
+        },
+        "browsing": {
+          "precision": 0.9362930878902725,
+          "recall": 0.8781313473256601,
+          "f1-score": 0.9062800244562844,
+          "support": 5908.0
+        },
+        "chat": {
+          "precision": 0.6998706338939198,
+          "recall": 0.519193857965451,
+          "f1-score": 0.5961432506887052,
+          "support": 1042.0
+        },
+        "email": {
+          "precision": 0.6581986143187067,
+          "recall": 0.5906735751295337,
+          "f1-score": 0.622610595303113,
+          "support": 965.0
+        },
+        "file_transfer": {
+          "precision": 0.7291904218928165,
+          "recall": 0.8100063331222292,
+          "f1-score": 0.7674767476747675,
+          "support": 1579.0
+        },
+        "p2p": {
+          "precision": 0.9783227501642215,
+          "recall": 0.9660540540540541,
+          "f1-score": 0.9721496953872933,
+          "support": 4625.0
+        },
+        "tor_audio_streaming": {
+          "precision": 0.7272727272727273,
+          "recall": 0.6666666666666666,
+          "f1-score": 0.6956521739130435,
+          "support": 24.0
+        },
+        "tor_browsing": {
+          "precision": 0.6615384615384615,
+          "recall": 0.8113207547169812,
+          "f1-score": 0.7288135593220338,
+          "support": 53.0
+        },
+        "tor_chat": {
+          "precision": 0.5,
+          "recall": 0.46153846153846156,
+          "f1-score": 0.48,
+          "support": 13.0
+        },
+        "tor_email": {
+          "precision": 0.5,
+          "recall": 0.5,
+          "f1-score": 0.5,
+          "support": 2.0
+        },
+        "tor_file_transfer": {
+          "precision": 0.8095238095238095,
+          "recall": 0.8095238095238095,
+          "f1-score": 0.8095238095238095,
+          "support": 21.0
+        },
+        "tor_p2p": {
+          "precision": 0.8947368421052632,
+          "recall": 0.7727272727272727,
+          "f1-score": 0.8292682926829268,
+          "support": 22.0
+        },
+        "tor_video_streaming": {
+          "precision": 0.6428571428571429,
+          "recall": 0.45,
+          "f1-score": 0.5294117647058824,
+          "support": 40.0
+        },
+        "tor_voip": {
+          "precision": 0.6714285714285714,
+          "recall": 0.7966101694915254,
+          "f1-score": 0.7286821705426356,
+          "support": 59.0
+        },
+        "video_streaming": {
+          "precision": 0.6400264200792602,
+          "recall": 0.6780965710286914,
+          "f1-score": 0.6585117227319062,
+          "support": 1429.0
+        },
+        "voip": {
+          "precision": 0.3560830860534125,
+          "recall": 0.6557377049180327,
+          "f1-score": 0.46153846153846156,
+          "support": 183.0
+        },
+        "vpn_audio_streaming": {
+          "precision": 0.893908281998631,
+          "recall": 0.8926862611073137,
+          "f1-score": 0.893296853625171,
+          "support": 1463.0
+        },
+        "vpn_chat": {
+          "precision": 0.953757225433526,
+          "recall": 0.9428571428571428,
+          "f1-score": 0.9482758620689655,
+          "support": 875.0
+        },
+        "vpn_email": {
+          "precision": 0.7961165048543689,
+          "recall": 0.8723404255319149,
+          "f1-score": 0.8324873096446701,
+          "support": 94.0
+        },
+        "vpn_file_transfer": {
+          "precision": 0.844731977818854,
+          "recall": 0.9232323232323232,
+          "f1-score": 0.8822393822393823,
+          "support": 495.0
+        },
+        "vpn_video_streaming": {
+          "precision": 0.7601626016260162,
+          "recall": 0.8348214285714286,
+          "f1-score": 0.7957446808510639,
+          "support": 224.0
+        },
+        "vpn_voip": {
+          "precision": 0.3086053412462908,
+          "recall": 0.7222222222222222,
+          "f1-score": 0.43243243243243246,
+          "support": 144.0
+        },
+        "accuracy": 0.8380068392769907,
+        "macro avg": {
+          "precision": 0.7107308408627128,
+          "recall": 0.7405662232116516,
+          "f1-score": 0.7170362483823368,
+          "support": 20470.0
+        },
+        "weighted avg": {
+          "precision": 0.848992097935009,
+          "recall": 0.8380068392769907,
+          "f1-score": 0.841038506945561,
+          "support": 20470.0
+        }
+      }
+    },
+    "per_family_detection_rate": {
+      "audio_streaming": 0.05702479338842975,
+      "browsing": 0.002369668246445498,
+      "chat": 0.09404990403071017,
+      "email": 0.09740932642487046,
+      "file_transfer": 0.029132362254591513,
+      "p2p": 0.0036756756756756758,
+      "tor_audio_streaming": 1.0,
+      "tor_browsing": 0.9245283018867925,
+      "tor_chat": 0.9230769230769231,
+      "tor_email": 1.0,
+      "tor_file_transfer": 1.0,
+      "tor_p2p": 1.0,
+      "tor_video_streaming": 0.725,
+      "tor_voip": 0.8983050847457628,
+      "video_streaming": 0.08957312806158152,
+      "voip": 0.060109289617486336,
+      "vpn_audio_streaming": 0.9453178400546821,
+      "vpn_chat": 0.984,
+      "vpn_email": 0.9361702127659575,
+      "vpn_file_transfer": 0.9818181818181818,
+      "vpn_video_streaming": 0.9241071428571429,
+      "vpn_voip": 0.6527777777777778
+    },
+    "alert_reason_counts": {
+      "benign": 16662,
+      "known-attack": 3375,
+      "known-attack+anomalous": 256,
+      "anomalous": 177
+    },
+    "stage2_unique_contribution": 0.000850099178237461,
+    "stage2_operating_points": [
+      {
+        "percentile": 90.0,
+        "threshold": 0.026158,
+        "recall": 0.2885,
+        "precision": 0.3754,
+        "f1": 0.3262,
+        "false_positive_rate": 0.1
+      },
+      {
+        "percentile": 95.0,
+        "threshold": 0.049922,
+        "recall": 0.1992,
+        "precision": 0.4535,
+        "f1": 0.2768,
+        "false_positive_rate": 0.05
+      },
+      {
+        "percentile": 97.5,
+        "threshold": 0.092016,
+        "recall": 0.0995,
+        "precision": 0.4529,
+        "f1": 0.1631,
+        "false_positive_rate": 0.025
+      },
+      {
+        "percentile": 99.0,
+        "threshold": 0.155152,
+        "recall": 0.0674,
+        "precision": 0.5833,
+        "f1": 0.1209,
+        "false_positive_rate": 0.01
+      },
+      {
+        "percentile": 99.5,
+        "threshold": 0.252416,
+        "recall": 0.0456,
+        "precision": 0.6545,
+        "f1": 0.0853,
+        "false_positive_rate": 0.005
+      },
+      {
+        "percentile": 99.9,
+        "threshold": 0.668768,
+        "recall": 0.0227,
+        "precision": 0.8247,
+        "f1": 0.0441,
+        "false_positive_rate": 0.001
+      }
+    ]
+  },
+  "latency": {
+    "batch_1": {
+      "total_ms": 51.961,
+      "per_flow_ms": 51.9613,
+      "flows_per_second": 19.2
+    },
+    "batch_32": {
+      "total_ms": 72.823,
+      "per_flow_ms": 2.2757,
+      "flows_per_second": 439.4
+    },
+    "batch_256": {
+      "total_ms": 86.807,
+      "per_flow_ms": 0.3391,
+      "flows_per_second": 2949.1
+    }
+  },
+  "example_explanations": [
+    {
+      "true_label": "vpn_audio_streaming",
+      "summary": "Matches the known family 'vpn_audio_streaming' (p=0.98). Driven by: unusually low fwd init win bytes (229.0); unusually low bwd init win bytes (29.0); unusually high bwd packets per s (12.4).",
+      "top_features": [
+        {
+          "feature": "fwd_init_win_bytes",
+          "label": "fwd init win bytes",
+          "weight": -14.644410133361816,
+          "deviation_sigma": -0.5999892257127959,
+          "direction": "low",
+          "value": 229.0
+        },
+        {
+          "feature": "bwd_init_win_bytes",
+          "label": "bwd init win bytes",
+          "weight": -8.393351554870605,
+          "deviation_sigma": -0.2908600736404325,
+          "direction": "low",
+          "value": 29.0
+        },
+        {
+          "feature": "bwd_packets_per_s",
+          "label": "bwd packets per s",
+          "weight": -5.774151802062988,
+          "deviation_sigma": 0.0771043863981771,
+          "direction": "high",
+          "value": 12.3722564521
+        },
+        {
+          "feature": "flow_iat_min",
+          "label": "flow iat min",
+          "weight": -5.469246864318848,
+          "deviation_sigma": 1.1960338737273728,
+          "direction": "high",
+          "value": 80826.0
+        }
+      ]
+    },
+    {
+      "true_label": "vpn_chat",
+      "summary": "Matches the known family 'vpn_chat' (p=1.00). Driven by: unusually low fwd init win bytes (0.0); unusually low bwd init win bytes (0.0); unusually high flow iat min (124,029.0).",
+      "top_features": [
+        {
+          "feature": "fwd_init_win_bytes",
+          "label": "fwd init win bytes",
+          "weight": -12.098287582397461,
+          "deviation_sigma": -0.6225006610700207,
+          "direction": "low",
+          "value": 0.0
+        },
+        {
+          "feature": "bwd_init_win_bytes",
+          "label": "bwd init win bytes",
+          "weight": -7.1676740646362305,
+          "deviation_sigma": -0.2958039047317299,
+          "direction": "low",
+          "value": 0.0
+        },
+        {
+          "feature": "flow_iat_min",
+          "label": "flow iat min",
+          "weight": -5.464378356933594,
+          "deviation_sigma": 1.290674034421006,
+          "direction": "high",
+          "value": 124029.0
+        },
+        {
+          "feature": "fwd_bytes",
+          "label": "bytes sent by client",
+          "weight": -3.7700164318084717,
+          "deviation_sigma": -0.14362072424586847,
+          "direction": "low",
+          "value": 37.0
+        }
+      ]
+    },
+    {
+      "true_label": "vpn_chat",
+      "summary": "Matches the known family 'vpn_chat' (p=1.00). Driven by: unusually low fwd init win bytes (0.0); unusually low bwd init win bytes (0.0); unusually high flow iat min (134,025.0).",
+      "top_features": [
+        {
+          "feature": "fwd_init_win_bytes",
+          "label": "fwd init win bytes",
+          "weight": -12.27441692352295,
+          "deviation_sigma": -0.6225006610700207,
+          "direction": "low",
+          "value": 0.0
+        },
+        {
+          "feature": "bwd_init_win_bytes",
+          "label": "bwd init win bytes",
+          "weight": -7.287330627441406,
+          "deviation_sigma": -0.2958039047317299,
+          "direction": "low",
+          "value": 0.0
+        },
+        {
+          "feature": "flow_iat_min",
+          "label": "flow iat min",
+          "weight": -4.254856586456299,
+          "deviation_sigma": 1.3078047641463282,
+          "direction": "high",
+          "value": 134025.0
+        },
+        {
+          "feature": "fwd_bytes",
+          "label": "bytes sent by client",
+          "weight": -3.9865055084228516,
+          "deviation_sigma": -0.08558001445028446,
+          "direction": "low",
+          "value": 45.0
+        }
+      ]
+    },
+    {
+      "true_label": "vpn_chat",
+      "summary": "Matches the known family 'vpn_chat' (p=1.00). Driven by: unusually low fwd init win bytes (0.0); unusually low bwd init win bytes (0.0); unusually high flow iat min (129,889.0).",
+      "top_features": [
+        {
+          "feature": "fwd_init_win_bytes",
+          "label": "fwd init win bytes",
+          "weight": -11.746620178222656,
+          "deviation_sigma": -0.6225006610700207,
+          "direction": "low",
+          "value": 0.0
+        },
+        {
+          "feature": "bwd_init_win_bytes",
+          "label": "bwd init win bytes",
+          "weight": -6.988251209259033,
+          "deviation_sigma": -0.2958039047317299,
+          "direction": "low",
+          "value": 0.0
+        },
+        {
+          "feature": "flow_iat_min",
+          "label": "flow iat min",
+          "weight": -4.914109230041504,
+          "deviation_sigma": 1.3008769442358987,
+          "direction": "high",
+          "value": 129889.0
+        },
+        {
+          "feature": "fwd_bytes",
+          "label": "bytes sent by client",
+          "weight": -4.040376663208008,
+          "deviation_sigma": -0.09908402457318079,
+          "direction": "low",
+          "value": 43.0
+        }
+      ]
+    },
+    {
+      "true_label": "vpn_audio_streaming",
+      "summary": "Matches the known family 'vpn_audio_streaming' (p=0.98). Driven by: unusually low fwd init win bytes (0.0); unusually low bwd init win bytes (0.0); unusually high flow iat min (32,887.0).",
+      "top_features": [
+        {
+          "feature": "fwd_init_win_bytes",
+          "label": "fwd init win bytes",
+          "weight": -12.692543029785156,
+          "deviation_sigma": -0.6225006610700207,
+          "direction": "low",
+          "value": 0.0
+        },
+        {
+          "feature": "bwd_init_win_bytes",
+          "label": "bwd init win bytes",
+          "weight": -7.744827747344971,
+          "deviation_sigma": -0.2958039047317299,
+          "direction": "low",
+          "value": 0.0
+        },
+        {
+          "feature": "flow_iat_min",
+          "label": "flow iat min",
+          "weight": -7.0710368156433105,
+          "deviation_sigma": 0.9972990020564039,
+          "direction": "high",
+          "value": 32887.0
+        },
+        {
+          "feature": "bwd_packets_per_s",
+          "label": "bwd packets per s",
+          "weight": -5.549323558807373,
+          "deviation_sigma": 0.3424769917268416,
+          "direction": "high",
+          "value": 30.4071517621
+        }
+      ]
+    }
+  ]
+}

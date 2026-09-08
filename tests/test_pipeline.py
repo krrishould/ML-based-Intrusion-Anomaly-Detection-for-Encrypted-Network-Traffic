@@ -426,3 +426,64 @@ class TestConfig:
 
     def test_paths_resolve_against_the_project_root(self):
         assert load_config().resolve("paths.models").is_absolute()
+
+
+class TestISCXLabelling:
+    """ISCX filenames are inconsistent; a silent fallback mislabelled 7 of 23."""
+
+    def _label(self, filename: str) -> str:
+        from pathlib import Path
+
+        from encids.data.dataset_loaders import _iscx_label
+
+        return _iscx_label(Path(filename))
+
+    @pytest.mark.parametrize("filename,expected", [
+        ("aim_chat_3a.pcap", "chat"),
+        ("AIMchat1.pcapng", "chat"),
+        ("facebook_chat_4a.pcap", "chat"),
+        ("facebookchat1.pcapng", "chat"),        # no separator - was the bug
+        ("facebook_video1a.pcap", "streaming"),  # no key at all - was the bug
+        ("facebook_audio3.pcapng", "voip"),
+        ("email1a.pcap", "email"),
+        ("youtube2.pcap", "streaming"),
+        ("skype_file1.pcap", "file_transfer"),
+        ("torrent01.pcap", "p2p"),
+    ])
+    def test_known_applications_are_categorised(self, filename, expected):
+        assert self._label(filename) == expected
+
+    def test_separator_style_does_not_change_the_label(self):
+        assert self._label("facebookchat1.pcapng") == \
+            self._label("facebook_chat_1.pcap")
+
+    def test_vpn_prefix_marks_traffic_as_tunnelled(self):
+        assert self._label("vpn_youtube_A.pcap") == "vpn_streaming"
+
+    def test_nonvpn_prefix_is_not_read_as_tunnelled(self):
+        """'nonvpn' contains 'vpn' - it must not flip the tunnelled flag."""
+        assert not self._label("nonvpn_chat1.pcap").startswith("vpn_")
+
+    def test_longer_keys_win_over_shorter_ones(self):
+        assert self._label("skype_file2.pcap") == "file_transfer"
+        assert self._label("skype_audio1.pcap") == "voip"
+
+    def test_unknown_application_falls_back_and_can_warn(self, caplog):
+        from pathlib import Path
+
+        from encids.data.dataset_loaders import _iscx_label
+
+        with caplog.at_level("WARNING", logger="encids.data.loaders"):
+            label = _iscx_label(Path("totally_unknown_app7.pcap"),
+                                warn_on_fallback=True)
+        assert label == "web_browsing"
+        assert "matched no known application" in caplog.text
+
+    def test_no_warning_when_the_application_is_known(self, caplog):
+        from pathlib import Path
+
+        from encids.data.dataset_loaders import _iscx_label
+
+        with caplog.at_level("WARNING", logger="encids.data.loaders"):
+            _iscx_label(Path("email1a.pcap"), warn_on_fallback=True)
+        assert "matched no known application" not in caplog.text
