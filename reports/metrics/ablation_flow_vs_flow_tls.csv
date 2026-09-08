@@ -1,0 +1,7 @@
+metric,flow_only_baseline,flow_plus_tls,delta,relative_%
+accuracy,0.9516,0.9817,0.0301,3.16
+f1,0.9122,0.9676,0.0553,6.06
+recall,0.8988,0.9762,0.0774,8.61
+precision,0.9261,0.9591,0.033,3.56
+false_positive_rate,0.0279,0.0162,-0.0117,-41.91
+roc_auc,0.9764,0.9911,0.0147,1.5

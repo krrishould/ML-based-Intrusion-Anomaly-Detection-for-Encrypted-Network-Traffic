@@ -1,0 +1,143 @@
+# ===========================================================================
+# ML-based Intrusion/Anomaly Detection for Encrypted Network Traffic
+# Central configuration.  Every script reads this file; nothing is hard-coded.
+# ===========================================================================
+
+project:
+  name: "encids"
+  seed: 42
+
+paths:
+  raw: "data/raw"
+  interim: "data/interim"
+  processed: "data/processed"
+  live: "data/live"
+  models: "models"
+  reports: "reports"
+  figures: "reports/figures"
+  metrics: "reports/metrics"
+
+# ---------------------------------------------------------------------------
+# Datasets.  `enabled` lets you train on whatever you have actually downloaded.
+# ---------------------------------------------------------------------------
+datasets:
+  synthetic:
+    enabled: true          # always available; lets the whole pipeline run today
+    n_flows: 60000
+    attack_fraction: 0.28
+  iscx_vpn2016:
+    enabled: true
+    kind: "pcap"           # raw pcaps -> NFStream
+    dir: "data/raw/iscx_vpn2016"
+  cic_darknet2020:
+    enabled: true
+    kind: "csv"            # pre-extracted CICFlowMeter CSV
+    dir: "data/raw/cic_darknet2020"
+  ctu13:
+    enabled: true
+    kind: "netflow"        # Argus binetflow / .binetflow.2format files
+    dir: "data/raw/ctu13"
+    # These captures are ~90-99% background traffic and run to millions of rows
+    # each. Every botnet flow is always kept; only background is sub-sampled to
+    # reach this budget, so the cap costs coverage of normal traffic, not attacks.
+    max_rows_per_file: 300000
+
+# ---------------------------------------------------------------------------
+# Feature engineering
+# ---------------------------------------------------------------------------
+features:
+  use_flow_stats: true     # packet sizes, IAT, duration, direction ratios
+  use_tls_metadata: true   # JA3 / JA3S / cipher-suite features  <- dual signal
+  min_packets_per_flow: 2  # drop degenerate 1-packet flows
+  ja3_hash_buckets: 256    # hashing-trick dimensionality for JA3 strings
+  drop_identifier_columns: true   # never train on IPs/ports -> avoids leakage
+
+# ---------------------------------------------------------------------------
+# Stage 1 - supervised classifier (known attack families)
+# ---------------------------------------------------------------------------
+supervised:
+  model: "xgboost"         # one of: random_forest | xgboost
+  test_size: 0.2
+  val_size: 0.1
+  stratify: true
+  class_weight: "balanced"
+  random_forest:
+    n_estimators: 400
+    max_depth: null
+    min_samples_leaf: 2
+    n_jobs: -1
+  xgboost:
+    n_estimators: 500
+    max_depth: 8
+    learning_rate: 0.08
+    subsample: 0.9
+    colsample_bytree: 0.8
+    reg_lambda: 1.5
+    tree_method: "hist"
+    n_jobs: -1
+
+# ---------------------------------------------------------------------------
+# Stage 2 - unsupervised anomaly detector (zero-day / unseen threats)
+# Trained on BENIGN traffic only.
+# ---------------------------------------------------------------------------
+anomaly:
+  # Autoencoder is the default: on the held-out split it reaches ROC-AUC ~0.85
+  # against IsolationForest's ~0.73, because reconstruction error captures
+  # feature *interactions* (e.g. "regular timing AND low volume AND rare JA3")
+  # that an axis-aligned isolation score cannot represent.
+  # Switch to isolation_forest for a fast, dependency-light baseline.
+  model: "autoencoder"        # one of: isolation_forest | autoencoder
+  contamination: 0.02
+  isolation_forest:
+    n_estimators: 500
+    max_samples: 512
+    n_jobs: -1
+  autoencoder:
+    hidden_dims: [48, 24, 10]
+    epochs: 80
+    batch_size: 256
+    lr: 0.001
+    weight_decay: 0.00001
+    early_stopping_patience: 10
+  # Hashing-trick buckets are ordinal in name only - bucket 200 is not "more"
+  # than bucket 3 - so a reconstruction-based detector must not see them.
+  # Stage 1 (trees) keeps them.
+  exclude_features:
+    - ja3_bucket
+    - ja3s_bucket
+  # Percentile of the BENIGN training scores used as the alert cut-off.
+  # 99.0 targets a ~1% false-positive rate; lower it to trade FPR for recall.
+  threshold_percentile: 99.0
+
+# ---------------------------------------------------------------------------
+# Stage fusion:  flag if EITHER stage fires (OR-fusion, as per methodology)
+# ---------------------------------------------------------------------------
+fusion:
+  rule: "or"                  # or | and | weighted
+  supervised_threshold: 0.5   # P(malicious) above which stage 1 fires
+  weighted_alpha: 0.6         # only used when rule == weighted
+
+# ---------------------------------------------------------------------------
+# Explainability
+# ---------------------------------------------------------------------------
+explain:
+  enabled: true
+  background_samples: 200
+  top_k_features: 6
+
+# ---------------------------------------------------------------------------
+# Live capture pipeline
+# ---------------------------------------------------------------------------
+live:
+  interface: null            # null -> auto-select default interface
+  idle_timeout: 15           # seconds before a flow is considered finished
+  active_timeout: 120
+  bpf_filter: ""             # e.g. "tcp port 443"
+  snapshot_interval: 3       # seconds between dashboard snapshots
+  max_buffered_flows: 5000
+  output_csv: "data/live/live_flows.csv"
+
+dashboard:
+  title: "Encrypted-Traffic IDS - Live Monitor"
+  refresh_seconds: 3
+  max_rows: 300

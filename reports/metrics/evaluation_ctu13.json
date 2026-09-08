@@ -1,0 +1,392 @@
+{
+  "source_filter": "ctu13",
+  "flow_plus_tls": {
+    "fused": {
+      "accuracy": 0.9875802483950321,
+      "balanced_accuracy": 0.9576111431114834,
+      "precision": 0.4459203036053131,
+      "recall": 0.9270216962524654,
+      "f1": 0.6021780909673287,
+      "mcc": 0.6382980222528908,
+      "false_positive_rate": 0.011799410029498525,
+      "false_negative_rate": 0.07297830374753451,
+      "true_positives": 470,
+      "false_positives": 584,
+      "true_negatives": 48910,
+      "false_negatives": 37,
+      "roc_auc": 0.9817296005994868,
+      "pr_auc": 0.8162708244732672
+    },
+    "stage1_only": {
+      "accuracy": 0.997680046399072,
+      "balanced_accuracy": 0.9597844984138895,
+      "precision": 0.860036832412523,
+      "recall": 0.9211045364891519,
+      "f1": 0.8895238095238095,
+      "mcc": 0.8888866576374058,
+      "false_positive_rate": 0.0015355396613730957,
+      "false_negative_rate": 0.07889546351084813,
+      "true_positives": 467,
+      "false_positives": 76,
+      "true_negatives": 49418,
+      "false_negatives": 40,
+      "roc_auc": 0.9971817754252921,
+      "pr_auc": 0.9533982742392241
+    },
+    "stage2_only": {
+      "accuracy": 0.9809803803923921,
+      "balanced_accuracy": 0.5609127088024297,
+      "precision": 0.11591695501730104,
+      "recall": 0.13214990138067062,
+      "f1": 0.12350230414746544,
+      "mcc": 0.11417990947411777,
+      "false_positive_rate": 0.01032448377581121,
+      "false_negative_rate": 0.8678500986193294,
+      "true_positives": 67,
+      "false_positives": 511,
+      "true_negatives": 48983,
+      "false_negatives": 440,
+      "roc_auc": 0.7700184844990277,
+      "pr_auc": 0.08951728331993354
+    },
+    "family_classification": {
+      "accuracy": 0.9969800603987921,
+      "macro_f1": 0.7620378029324061,
+      "weighted_f1": 0.9970796423228452,
+      "per_class": {
+        "benign": {
+          "precision": 0.9991912329653443,
+          "recall": 0.9984644603386269,
+          "f1-score": 0.9988277144474088,
+          "support": 49494.0
+        },
+        "botnet_menti": {
+          "precision": 0.9222797927461139,
+          "recall": 0.8811881188118812,
+          "f1-score": 0.9012658227848102,
+          "support": 202.0
+        },
+        "botnet_nsis_ay": {
+          "precision": 0.7046632124352331,
+          "recall": 0.8242424242424242,
+          "f1-score": 0.7597765363128491,
+          "support": 165.0
+        },
+        "botnet_rbot": {
+          "precision": 0.967741935483871,
+          "recall": 0.9836065573770492,
+          "f1-score": 0.975609756097561,
+          "support": 61.0
+        },
+        "botnet_sogou": {
+          "precision": 0.3333333333333333,
+          "recall": 0.2,
+          "f1-score": 0.25,
+          "support": 5.0
+        },
+        "botnet_virut": {
+          "precision": 0.6195652173913043,
+          "recall": 0.7702702702702703,
+          "f1-score": 0.6867469879518072,
+          "support": 74.0
+        },
+        "accuracy": 0.9969800603987921,
+        "macro avg": {
+          "precision": 0.7577957873925333,
+          "recall": 0.7762953051733753,
+          "f1-score": 0.7620378029324061,
+          "support": 50001.0
+        },
+        "weighted avg": {
+          "precision": 0.9972418068316917,
+          "recall": 0.9969800603987921,
+          "f1-score": 0.9970796423228452,
+          "support": 50001.0
+        }
+      }
+    },
+    "per_family_detection_rate": {
+      "benign": 0.011799410029498525,
+      "botnet_menti": 0.9851485148514851,
+      "botnet_nsis_ay": 0.8545454545454545,
+      "botnet_rbot": 0.9836065573770492,
+      "botnet_sogou": 0.4,
+      "botnet_virut": 0.918918918918919
+    },
+    "alert_reason_counts": {
+      "benign": 48947,
+      "anomalous": 511,
+      "known-attack": 476,
+      "known-attack+anomalous": 67
+    },
+    "stage2_unique_contribution": 0.005917159763313609,
+    "stage2_operating_points": [
+      {
+        "percentile": 90.0,
+        "threshold": 0.000339,
+        "recall": 0.4832,
+        "precision": 0.0472,
+        "f1": 0.0859,
+        "false_positive_rate": 0.1
+      },
+      {
+        "percentile": 95.0,
+        "threshold": 0.000569,
+        "recall": 0.1538,
+        "precision": 0.0306,
+        "f1": 0.051,
+        "false_positive_rate": 0.05
+      },
+      {
+        "percentile": 97.5,
+        "threshold": 0.000955,
+        "recall": 0.144,
+        "precision": 0.0557,
+        "f1": 0.0803,
+        "false_positive_rate": 0.025
+      },
+      {
+        "percentile": 99.0,
+        "threshold": 0.001896,
+        "recall": 0.1321,
+        "precision": 0.1192,
+        "f1": 0.1254,
+        "false_positive_rate": 0.01
+      },
+      {
+        "percentile": 99.5,
+        "threshold": 0.003254,
+        "recall": 0.1282,
+        "precision": 0.2077,
+        "f1": 0.1585,
+        "false_positive_rate": 0.005
+      },
+      {
+        "percentile": 99.9,
+        "threshold": 0.010398,
+        "recall": 0.1183,
+        "precision": 0.5455,
+        "f1": 0.1945,
+        "false_positive_rate": 0.001
+      }
+    ]
+  },
+  "latency": {
+    "batch_1": {
+      "total_ms": 27.998,
+      "per_flow_ms": 27.9984,
+      "flows_per_second": 35.7
+    },
+    "batch_32": {
+      "total_ms": 34.518,
+      "per_flow_ms": 1.0787,
+      "flows_per_second": 927.1
+    },
+    "batch_256": {
+      "total_ms": 39.273,
+      "per_flow_ms": 0.1534,
+      "flows_per_second": 6518.5
+    }
+  },
+  "zero_day": {
+    "held_out": "botnet_menti",
+    "n_flows": 202,
+    "overall_detection_rate": 0.900990099009901,
+    "stage1_rate": 0.900990099009901,
+    "stage2_rate": 0.0,
+    "stage2_only_rate": 0.0,
+    "missed": 20
+  },
+  "example_explanations": [
+    {
+      "true_label": "botnet_nsis_ay",
+      "summary": "Matches the known family 'botnet_nsis_ay' (p=1.00). Driven by: unusually low throughput (45.9); unusually low fwd packets per s (0.3); unusually low bytes transferred (280.0).",
+      "top_features": [
+        {
+          "feature": "flow_bytes_per_s",
+          "label": "throughput",
+          "weight": -4.613107681274414,
+          "deviation_sigma": -0.9132406350392108,
+          "direction": "low",
+          "value": 45.915263381429575
+        },
+        {
+          "feature": "fwd_packets_per_s",
+          "label": "fwd packets per s",
+          "weight": -3.8454768657684326,
+          "deviation_sigma": -0.9806302358484998,
+          "direction": "low",
+          "value": 0.32796616701021125
+        },
+        {
+          "feature": "total_bytes",
+          "label": "bytes transferred",
+          "weight": -3.4606356620788574,
+          "deviation_sigma": -0.741194755428468,
+          "direction": "low",
+          "value": 280.0
+        },
+        {
+          "feature": "duration_ms",
+          "label": "flow duration",
+          "weight": -3.4126760959625244,
+          "deviation_sigma": 0.5127591140850164,
+          "direction": "high",
+          "value": 6098.19
+        }
+      ]
+    },
+    {
+      "true_label": "botnet_rbot",
+      "summary": "Matches 'botnet_rbot' and is 10.2 sigma from normal. Driven by: unusually high average packet size (1,066.0); unusually low throughput (213.3); unusually high average client packet size (1,066.0).",
+      "top_features": [
+        {
+          "feature": "pkt_len_mean",
+          "label": "average packet size",
+          "weight": 5.268954753875732,
+          "deviation_sigma": 3.6710286204827765,
+          "direction": "high",
+          "value": 1066.0
+        },
+        {
+          "feature": "flow_bytes_per_s",
+          "label": "throughput",
+          "weight": -4.008057117462158,
+          "deviation_sigma": -0.5852620408785655,
+          "direction": "low",
+          "value": 213.26813917046496
+        },
+        {
+          "feature": "fwd_pkt_len_mean",
+          "label": "average client packet size",
+          "weight": -3.732889175415039,
+          "deviation_sigma": 6.8639324732552005,
+          "direction": "high",
+          "value": 1066.0
+        },
+        {
+          "feature": "duration_ms",
+          "label": "flow duration",
+          "weight": -3.657931089401245,
+          "deviation_sigma": 1.062479554930797,
+          "direction": "high",
+          "value": 89971.245
+        }
+      ]
+    },
+    {
+      "true_label": "benign",
+      "summary": "Does not match any known traffic profile (1.9 sigma from normal) - possible unseen threat. Driven by: unusually low bytes sent by client (0.0); unusually low download/upload packet ratio (0.0); unusually high bwd packets per s (35,087.7).",
+      "top_features": [
+        {
+          "feature": "fwd_bytes",
+          "label": "bytes sent by client",
+          "weight": -3.675849078885775,
+          "deviation_sigma": -3.675849078885775,
+          "direction": "low",
+          "value": 0.0
+        },
+        {
+          "feature": "down_up_packet_ratio",
+          "label": "download/upload packet ratio",
+          "weight": -3.2610750057293196,
+          "deviation_sigma": -3.2610750057293196,
+          "direction": "low",
+          "value": 0.0
+        },
+        {
+          "feature": "bwd_packets_per_s",
+          "label": "bwd packets per s",
+          "weight": 2.2942255582452566,
+          "deviation_sigma": 2.2942255582452566,
+          "direction": "high",
+          "value": 35087.71929824561
+        },
+        {
+          "feature": "flow_packets_per_s",
+          "label": "packet rate",
+          "weight": 2.000978457992064,
+          "deviation_sigma": 2.000978457992064,
+          "direction": "high",
+          "value": 35087.71929824561
+        }
+      ]
+    },
+    {
+      "true_label": "benign",
+      "summary": "Does not match any known traffic profile (1.6 sigma from normal) - possible unseen threat. Driven by: unusually high fwd packets (470.0); unusually high packet count (470.0); unusually high bytes sent by client (57,800.0).",
+      "top_features": [
+        {
+          "feature": "fwd_packets",
+          "label": "fwd packets",
+          "weight": 4.779611380057626,
+          "deviation_sigma": 4.779611380057626,
+          "direction": "high",
+          "value": 470.0
+        },
+        {
+          "feature": "total_packets",
+          "label": "packet count",
+          "weight": 3.7521160190177363,
+          "deviation_sigma": 3.7521160190177363,
+          "direction": "high",
+          "value": 470.0
+        },
+        {
+          "feature": "fwd_bytes",
+          "label": "bytes sent by client",
+          "weight": 3.309043961866855,
+          "deviation_sigma": 3.309043961866855,
+          "direction": "high",
+          "value": 57800.0
+        },
+        {
+          "feature": "down_up_packet_ratio",
+          "label": "download/upload packet ratio",
+          "weight": -3.2610750057293196,
+          "deviation_sigma": -3.2610750057293196,
+          "direction": "low",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "true_label": "botnet_nsis_ay",
+      "summary": "Matches the known family 'botnet_nsis_ay' (p=1.00). Driven by: unusually low throughput (332.3); unusually low fwd init win bytes (0.0); unusually low packet rate (3.7).",
+      "top_features": [
+        {
+          "feature": "flow_bytes_per_s",
+          "label": "throughput",
+          "weight": -4.903601169586182,
+          "deviation_sigma": -0.4898385790025479,
+          "direction": "low",
+          "value": 332.33200524304794
+        },
+        {
+          "feature": "fwd_init_win_bytes",
+          "label": "fwd init win bytes",
+          "weight": -4.399446487426758,
+          "deviation_sigma": -0.10301632275038035,
+          "direction": "low",
+          "value": 0.0
+        },
+        {
+          "feature": "flow_packets_per_s",
+          "label": "packet rate",
+          "weight": -2.3047680854797363,
+          "deviation_sigma": -0.6727024260870631,
+          "direction": "low",
+          "value": 3.7132067624921556
+        },
+        {
+          "feature": "bwd_bytes",
+          "label": "bytes sent by server",
+          "weight": -2.08034610748291,
+          "deviation_sigma": -0.711381428789679,
+          "direction": "low",
+          "value": 90.0
+        }
+      ]
+    }
+  ]
+}

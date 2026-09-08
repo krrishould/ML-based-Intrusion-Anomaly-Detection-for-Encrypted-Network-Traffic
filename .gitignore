@@ -1,0 +1,39 @@
+# virtual environment
+.venv/
+venv/
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# data - large, and the CIC datasets may not be redistributed
+data/raw/*
+!data/raw/.gitkeep
+data/interim/*
+data/processed/*
+data/live/*
+!data/*/.gitkeep
+
+# trained artefacts
+models/*
+!models/.gitkeep
+
+# Generated reports ARE committed: RESULTS.md cites them, and the figures and
+# metrics JSON are the evidence behind every number in it. They total <500 KB.
+
+
+# tools
+tools/*.exe
+
+# logs
+*.log
+
+# editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

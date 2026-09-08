@@ -1,0 +1,43 @@
+# ---------------------------------------------------------------------------
+# ML-based Intrusion/Anomaly Detection for Encrypted Network Traffic
+# BCSE497J - Project I  |  Python 3.11 - 3.14
+# ---------------------------------------------------------------------------
+
+# --- core scientific stack -------------------------------------------------
+numpy>=1.26
+pandas>=2.2
+scipy>=1.11
+pyarrow>=15.0          # parquet I/O for the feature tables
+
+# --- machine learning ------------------------------------------------------
+scikit-learn>=1.5      # RandomForest, IsolationForest, metrics, preprocessing
+xgboost>=2.0           # gradient-boosted supervised classifier
+imbalanced-learn>=0.12 # class-imbalance handling for rare attack families
+joblib>=1.3            # model persistence
+
+# --- deep learning (autoencoder anomaly detector) --------------------------
+torch>=2.2             # CPU build is sufficient for the shallow autoencoder
+
+# --- explainability --------------------------------------------------------
+shap>=0.45
+
+# --- network traffic processing -------------------------------------------
+nfstream>=6.5          # pcap -> flow-level statistics (also does live capture)
+scapy>=2.5             # TLS ClientHello/ServerHello parsing -> JA3 / JA3S
+dpkt>=1.9              # lightweight fallback pcap reader
+
+# --- dashboard & plotting --------------------------------------------------
+streamlit>=1.35
+plotly>=5.20
+matplotlib>=3.8
+seaborn>=0.13
+
+# --- utilities -------------------------------------------------------------
+PyYAML>=6.0
+tqdm>=4.66
+requests>=2.31
+rich>=13.7
+click>=8.1
+
+# --- testing ---------------------------------------------------------------
+pytest>=8.0

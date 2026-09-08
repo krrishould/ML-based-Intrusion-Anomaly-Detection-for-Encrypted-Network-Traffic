@@ -1,0 +1,721 @@
+{
+  "source_filter": "synthetic",
+  "flow_only": {
+    "fused": {
+      "accuracy": 0.9515833333333333,
+      "balanced_accuracy": 0.9354580026455026,
+      "precision": 0.926096289481754,
+      "recall": 0.8988095238095238,
+      "f1": 0.9122489049992448,
+      "mcc": 0.8790154585714286,
+      "false_positive_rate": 0.02789351851851852,
+      "false_negative_rate": 0.10119047619047619,
+      "true_positives": 3020,
+      "false_positives": 241,
+      "true_negatives": 8399,
+      "false_negatives": 340,
+      "roc_auc": 0.9764266079695767,
+      "pr_auc": 0.9546961893233047
+    },
+    "stage1_only": {
+      "accuracy": 0.95825,
+      "balanced_accuracy": 0.9399966931216932,
+      "precision": 0.9496697074551745,
+      "recall": 0.8985119047619048,
+      "f1": 0.9233827802416271,
+      "mcc": 0.8953683591802593,
+      "false_positive_rate": 0.018518518518518517,
+      "false_negative_rate": 0.10148809523809524,
+      "true_positives": 3019,
+      "false_positives": 160,
+      "true_negatives": 8480,
+      "false_negatives": 341,
+      "roc_auc": 0.9857936163470017,
+      "pr_auc": 0.9758053604313177
+    },
+    "stage2_only": {
+      "accuracy": 0.7696666666666667,
+      "balanced_accuracy": 0.5963293650793651,
+      "precision": 0.8900523560209425,
+      "recall": 0.20238095238095238,
+      "f1": 0.3297769156159069,
+      "mcc": 0.354293071029376,
+      "false_positive_rate": 0.009722222222222222,
+      "false_negative_rate": 0.7976190476190477,
+      "true_positives": 680,
+      "false_positives": 84,
+      "true_negatives": 8556,
+      "false_negatives": 2680,
+      "roc_auc": 0.8479542824074074,
+      "pr_auc": 0.7077345959806723
+    },
+    "family_classification": {
+      "accuracy": 0.926,
+      "macro_f1": 0.8886456576118075,
+      "weighted_f1": 0.9251030176727066,
+      "per_class": {
+        "c2_beacon": {
+          "precision": 0.8512110726643599,
+          "recall": 0.8463302752293578,
+          "f1-score": 0.8487636572742956,
+          "support": 872.0
+        },
+        "crypto_mining": {
+          "precision": 0.7801418439716312,
+          "recall": 0.6489675516224189,
+          "f1-score": 0.7085346215780999,
+          "support": 339.0
+        },
+        "data_exfiltration": {
+          "precision": 0.751131221719457,
+          "recall": 0.7033898305084746,
+          "f1-score": 0.7264770240700219,
+          "support": 472.0
+        },
+        "ddos_flood": {
+          "precision": 0.976063829787234,
+          "recall": 0.9291139240506329,
+          "f1-score": 0.9520103761348897,
+          "support": 395.0
+        },
+        "file_transfer": {
+          "precision": 0.8753462603878116,
+          "recall": 0.9028571428571428,
+          "f1-score": 0.8888888888888888,
+          "support": 1050.0
+        },
+        "port_scan": {
+          "precision": 0.9672897196261683,
+          "recall": 0.92,
+          "f1-score": 0.9430523917995444,
+          "support": 675.0
+        },
+        "streaming": {
+          "precision": 0.9708624708624709,
+          "recall": 0.9591249280368451,
+          "f1-score": 0.9649580075296843,
+          "support": 1737.0
+        },
+        "tor_darknet": {
+          "precision": 0.920863309352518,
+          "recall": 0.8434925864909391,
+          "f1-score": 0.880481513327601,
+          "support": 607.0
+        },
+        "voip": {
+          "precision": 0.9980601357904947,
+          "recall": 0.9837476099426387,
+          "f1-score": 0.9908521906596052,
+          "support": 1046.0
+        },
+        "vpn_tunnel": {
+          "precision": 0.8807439824945296,
+          "recall": 0.9349593495934959,
+          "f1-score": 0.9070422535211268,
+          "support": 861.0
+        },
+        "web_browsing": {
+          "precision": 0.9469567342947934,
+          "recall": 0.9817536746071972,
+          "f1-score": 0.9640413089461242,
+          "support": 3946.0
+        },
+        "accuracy": 0.926,
+        "macro avg": {
+          "precision": 0.9016973255410426,
+          "recall": 0.8776124429944676,
+          "f1-score": 0.8886456576118075,
+          "support": 12000.0
+        },
+        "weighted avg": {
+          "precision": 0.9252643590999253,
+          "recall": 0.926,
+          "f1-score": 0.9251030176727066,
+          "support": 12000.0
+        }
+      }
+    },
+    "per_family_detection_rate": {
+      "c2_beacon": 0.926605504587156,
+      "crypto_mining": 0.9262536873156342,
+      "data_exfiltration": 0.7330508474576272,
+      "ddos_flood": 0.959493670886076,
+      "file_transfer": 0.08952380952380952,
+      "port_scan": 0.9481481481481482,
+      "streaming": 0.02072538860103627,
+      "tor_darknet": 0.8780889621087314,
+      "voip": 0.01338432122370937,
+      "vpn_tunnel": 0.03484320557491289,
+      "web_browsing": 0.016979219462747084
+    },
+    "alert_reason_counts": {
+      "benign": 8739,
+      "known-attack": 2497,
+      "known-attack+anomalous": 682,
+      "anomalous": 82
+    },
+    "stage2_unique_contribution": 0.00029761904761904765,
+    "stage2_operating_points": [
+      {
+        "percentile": 90.0,
+        "threshold": 0.019344,
+        "recall": 0.6101,
+        "precision": 0.7035,
+        "f1": 0.6535,
+        "false_positive_rate": 0.1
+      },
+      {
+        "percentile": 95.0,
+        "threshold": 0.027139,
+        "recall": 0.4539,
+        "precision": 0.7793,
+        "f1": 0.5736,
+        "false_positive_rate": 0.05
+      },
+      {
+        "percentile": 97.5,
+        "threshold": 0.040145,
+        "recall": 0.3045,
+        "precision": 0.8257,
+        "f1": 0.4449,
+        "false_positive_rate": 0.025
+      },
+      {
+        "percentile": 99.0,
+        "threshold": 0.063618,
+        "recall": 0.2074,
+        "precision": 0.889,
+        "f1": 0.3364,
+        "false_positive_rate": 0.0101
+      },
+      {
+        "percentile": 99.5,
+        "threshold": 0.105936,
+        "recall": 0.1039,
+        "precision": 0.888,
+        "f1": 0.186,
+        "false_positive_rate": 0.0051
+      },
+      {
+        "percentile": 99.9,
+        "threshold": 0.90057,
+        "recall": 0.0149,
+        "precision": 0.8475,
+        "f1": 0.0292,
+        "false_positive_rate": 0.001
+      }
+    ],
+    "detection_by_evasion_level": [
+      {
+        "band": "none",
+        "n_flows": 2174,
+        "detection_rate": 0.9572
+      },
+      {
+        "band": "light (0-0.3)",
+        "n_flows": 223,
+        "detection_rate": 0.9283
+      },
+      {
+        "band": "moderate (0.3-0.6)",
+        "n_flows": 556,
+        "detection_rate": 0.8633
+      },
+      {
+        "band": "heavy (0.6-1.0)",
+        "n_flows": 407,
+        "detection_rate": 0.6192
+      }
+    ]
+  },
+  "flow_plus_tls": {
+    "fused": {
+      "accuracy": 0.9816666666666667,
+      "balanced_accuracy": 0.9799933862433863,
+      "precision": 0.9590643274853801,
+      "recall": 0.9761904761904762,
+      "f1": 0.967551622418879,
+      "mcc": 0.9548498011374851,
+      "false_positive_rate": 0.016203703703703703,
+      "false_negative_rate": 0.023809523809523808,
+      "true_positives": 3280,
+      "false_positives": 140,
+      "true_negatives": 8500,
+      "false_negatives": 80,
+      "roc_auc": 0.9911212039792768,
+      "pr_auc": 0.9834893175172862
+    },
+    "stage1_only": {
+      "accuracy": 0.9894166666666667,
+      "balanced_accuracy": 0.9853753306878307,
+      "precision": 0.985873159002104,
+      "recall": 0.9761904761904762,
+      "f1": 0.98100792582623,
+      "mcc": 0.9736954294209033,
+      "false_positive_rate": 0.005439814814814815,
+      "false_negative_rate": 0.023809523809523808,
+      "true_positives": 3280,
+      "false_positives": 47,
+      "true_negatives": 8593,
+      "false_negatives": 80,
+      "roc_auc": 0.9991587094907408,
+      "pr_auc": 0.9980679116343967
+    },
+    "stage2_only": {
+      "accuracy": 0.83925,
+      "balanced_accuracy": 0.7214037698412699,
+      "precision": 0.9424860853432282,
+      "recall": 0.45357142857142857,
+      "f1": 0.6124171187462327,
+      "mcc": 0.582270891882766,
+      "false_positive_rate": 0.010763888888888889,
+      "false_negative_rate": 0.5464285714285714,
+      "true_positives": 1524,
+      "false_positives": 93,
+      "true_negatives": 8547,
+      "false_negatives": 1836,
+      "roc_auc": 0.820560688106261,
+      "pr_auc": 0.758426417307722
+    },
+    "family_classification": {
+      "accuracy": 0.9495833333333333,
+      "macro_f1": 0.9185146582232708,
+      "weighted_f1": 0.9492367771471187,
+      "per_class": {
+        "c2_beacon": {
+          "precision": 0.8409331919406151,
+          "recall": 0.9094036697247706,
+          "f1-score": 0.8738292011019284,
+          "support": 872.0
+        },
+        "crypto_mining": {
+          "precision": 0.7816901408450704,
+          "recall": 0.6548672566371682,
+          "f1-score": 0.7126805778491172,
+          "support": 339.0
+        },
+        "data_exfiltration": {
+          "precision": 0.8526315789473684,
+          "recall": 0.8580508474576272,
+          "f1-score": 0.8553326293558606,
+          "support": 472.0
+        },
+        "ddos_flood": {
+          "precision": 0.9787798408488063,
+          "recall": 0.9341772151898734,
+          "f1-score": 0.9559585492227979,
+          "support": 395.0
+        },
+        "file_transfer": {
+          "precision": 0.9514285714285714,
+          "recall": 0.9514285714285714,
+          "f1-score": 0.9514285714285714,
+          "support": 1050.0
+        },
+        "port_scan": {
+          "precision": 0.9647779479326187,
+          "recall": 0.9333333333333333,
+          "f1-score": 0.9487951807228916,
+          "support": 675.0
+        },
+        "streaming": {
+          "precision": 0.9829512051734274,
+          "recall": 0.9625791594703512,
+          "f1-score": 0.9726585223967423,
+          "support": 1737.0
+        },
+        "tor_darknet": {
+          "precision": 0.9291736930860034,
+          "recall": 0.9077429983525536,
+          "f1-score": 0.9183333333333333,
+          "support": 607.0
+        },
+        "voip": {
+          "precision": 0.999031007751938,
+          "recall": 0.98565965583174,
+          "f1-score": 0.9923002887391723,
+          "support": 1046.0
+        },
+        "vpn_tunnel": {
+          "precision": 0.9327251995438997,
+          "recall": 0.9500580720092915,
+          "f1-score": 0.9413118527042578,
+          "support": 861.0
+        },
+        "web_browsing": {
+          "precision": 0.9726027397260274,
+          "recall": 0.9896097313735428,
+          "f1-score": 0.9810325336013064,
+          "support": 3946.0
+        },
+        "accuracy": 0.9495833333333333,
+        "macro avg": {
+          "precision": 0.9260659197476678,
+          "recall": 0.9124464100735292,
+          "f1-score": 0.9185146582232708,
+          "support": 12000.0
+        },
+        "weighted avg": {
+          "precision": 0.9495766562779856,
+          "recall": 0.9495833333333333,
+          "f1-score": 0.9492367771471187,
+          "support": 12000.0
+        }
+      }
+    },
+    "per_family_detection_rate": {
+      "c2_beacon": 0.9885321100917431,
+      "crypto_mining": 0.976401179941003,
+      "data_exfiltration": 0.9364406779661016,
+      "ddos_flood": 0.9873417721518988,
+      "file_transfer": 0.03428571428571429,
+      "port_scan": 0.9822222222222222,
+      "streaming": 0.014968336211859529,
+      "tor_darknet": 0.9752883031301482,
+      "voip": 0.015296367112810707,
+      "vpn_tunnel": 0.013937282229965157,
+      "web_browsing": 0.012671059300557527
+    },
+    "alert_reason_counts": {
+      "benign": 8580,
+      "known-attack": 1803,
+      "known-attack+anomalous": 1524,
+      "anomalous": 93
+    },
+    "stage2_unique_contribution": 0.0,
+    "stage2_operating_points": [
+      {
+        "percentile": 90.0,
+        "threshold": 0.099345,
+        "recall": 0.6128,
+        "precision": 0.7044,
+        "f1": 0.6554,
+        "false_positive_rate": 0.1
+      },
+      {
+        "percentile": 95.0,
+        "threshold": 0.134954,
+        "recall": 0.5405,
+        "precision": 0.8078,
+        "f1": 0.6476,
+        "false_positive_rate": 0.05
+      },
+      {
+        "percentile": 97.5,
+        "threshold": 0.168576,
+        "recall": 0.4854,
+        "precision": 0.8831,
+        "f1": 0.6265,
+        "false_positive_rate": 0.025
+      },
+      {
+        "percentile": 99.0,
+        "threshold": 0.206403,
+        "recall": 0.4515,
+        "precision": 0.9458,
+        "f1": 0.6112,
+        "false_positive_rate": 0.0101
+      },
+      {
+        "percentile": 99.5,
+        "threshold": 0.227012,
+        "recall": 0.4298,
+        "precision": 0.9704,
+        "f1": 0.5957,
+        "false_positive_rate": 0.0051
+      },
+      {
+        "percentile": 99.9,
+        "threshold": 0.591019,
+        "recall": 0.2723,
+        "precision": 0.9903,
+        "f1": 0.4272,
+        "false_positive_rate": 0.001
+      }
+    ],
+    "detection_by_evasion_level": [
+      {
+        "band": "none",
+        "n_flows": 2174,
+        "detection_rate": 0.9903
+      },
+      {
+        "band": "light (0-0.3)",
+        "n_flows": 223,
+        "detection_rate": 0.991
+      },
+      {
+        "band": "moderate (0.3-0.6)",
+        "n_flows": 556,
+        "detection_rate": 0.9676
+      },
+      {
+        "band": "heavy (0.6-1.0)",
+        "n_flows": 407,
+        "detection_rate": 0.9042
+      }
+    ]
+  },
+  "comparison": [
+    {
+      "metric": "accuracy",
+      "flow_only_baseline": 0.9516,
+      "flow_plus_tls": 0.9817,
+      "delta": 0.0301,
+      "relative_%": 3.16
+    },
+    {
+      "metric": "f1",
+      "flow_only_baseline": 0.9122,
+      "flow_plus_tls": 0.9676,
+      "delta": 0.0553,
+      "relative_%": 6.06
+    },
+    {
+      "metric": "recall",
+      "flow_only_baseline": 0.8988,
+      "flow_plus_tls": 0.9762,
+      "delta": 0.0774,
+      "relative_%": 8.61
+    },
+    {
+      "metric": "precision",
+      "flow_only_baseline": 0.9261,
+      "flow_plus_tls": 0.9591,
+      "delta": 0.033,
+      "relative_%": 3.56
+    },
+    {
+      "metric": "false_positive_rate",
+      "flow_only_baseline": 0.0279,
+      "flow_plus_tls": 0.0162,
+      "delta": -0.0117,
+      "relative_%": -41.91
+    },
+    {
+      "metric": "roc_auc",
+      "flow_only_baseline": 0.9764,
+      "flow_plus_tls": 0.9911,
+      "delta": 0.0147,
+      "relative_%": 1.5
+    }
+  ],
+  "latency": {
+    "batch_1": {
+      "total_ms": 55.101,
+      "per_flow_ms": 55.1008,
+      "flows_per_second": 18.1
+    },
+    "batch_32": {
+      "total_ms": 64.607,
+      "per_flow_ms": 2.019,
+      "flows_per_second": 495.3
+    },
+    "batch_256": {
+      "total_ms": 72.0,
+      "per_flow_ms": 0.2813,
+      "flows_per_second": 3555.6
+    }
+  },
+  "zero_day": {
+    "held_out": "tor_darknet",
+    "n_flows": 607,
+    "overall_detection_rate": 0.6490939044481054,
+    "stage1_rate": 0.6392092257001647,
+    "stage2_rate": 0.4876441515650741,
+    "stage2_only_rate": 0.009884678747940691,
+    "missed": 213
+  },
+  "example_explanations": [
+    {
+      "true_label": "crypto_mining",
+      "summary": "Matches the known family 'crypto_mining' (p=1.00). Driven by: unusually low throughput (1,248.2); unusually high average server send interval (647.6); unusually high average gap between packets (388.2).",
+      "top_features": [
+        {
+          "feature": "flow_bytes_per_s",
+          "label": "throughput",
+          "weight": -5.131017684936523,
+          "deviation_sigma": -0.9214930492033557,
+          "direction": "low",
+          "value": 1248.1559702777452
+        },
+        {
+          "feature": "bwd_iat_mean",
+          "label": "average server send interval",
+          "weight": -3.4900805950164795,
+          "deviation_sigma": 0.556200869142908,
+          "direction": "high",
+          "value": 647.5921109014628
+        },
+        {
+          "feature": "flow_iat_mean",
+          "label": "average gap between packets",
+          "weight": -1.9526207447052002,
+          "deviation_sigma": 0.8950816598120569,
+          "direction": "high",
+          "value": 388.19959258449916
+        },
+        {
+          "feature": "flow_packets_per_s",
+          "label": "packet rate",
+          "weight": -1.863545536994934,
+          "deviation_sigma": -1.2422013103396203,
+          "direction": "low",
+          "value": 2.5799332897799614
+        }
+      ]
+    },
+    {
+      "true_label": "voip",
+      "summary": "Does not match any known traffic profile (4.3 sigma from normal) - possible unseen threat. Driven by: unusually high PSH flag count (6,482.0); unusually high ack count (16,543.0); unusually high urg count (27.0).",
+      "top_features": [
+        {
+          "feature": "psh_count",
+          "label": "PSH flag count",
+          "weight": 17.687070698427167,
+          "deviation_sigma": 17.687070698427167,
+          "direction": "high",
+          "value": 6482.0
+        },
+        {
+          "feature": "ack_count",
+          "label": "ack count",
+          "weight": 13.581718270725311,
+          "deviation_sigma": 13.581718270725311,
+          "direction": "high",
+          "value": 16543.0
+        },
+        {
+          "feature": "urg_count",
+          "label": "urg count",
+          "weight": 7.911785151851921,
+          "deviation_sigma": 7.911785151851921,
+          "direction": "high",
+          "value": 27.0
+        },
+        {
+          "feature": "fwd_packets",
+          "label": "fwd packets",
+          "weight": 3.1447476748746523,
+          "deviation_sigma": 3.1447476748746523,
+          "direction": "high",
+          "value": 7726.0
+        }
+      ]
+    },
+    {
+      "true_label": "c2_beacon",
+      "summary": "Matches the known family 'c2_beacon' (p=1.00). Driven by: unusually low throughput (3,496.9); unusually high average server send interval (203.2); unusually low packet rate (7.7).",
+      "top_features": [
+        {
+          "feature": "flow_bytes_per_s",
+          "label": "throughput",
+          "weight": -2.224177122116089,
+          "deviation_sigma": -0.3750044748153527,
+          "direction": "low",
+          "value": 3496.9318885379284
+        },
+        {
+          "feature": "bwd_iat_mean",
+          "label": "average server send interval",
+          "weight": -2.1888294219970703,
+          "deviation_sigma": 0.03076612240520936,
+          "direction": "high",
+          "value": 203.19434870844302
+        },
+        {
+          "feature": "flow_packets_per_s",
+          "label": "packet rate",
+          "weight": -2.033198833465576,
+          "deviation_sigma": -0.5439124475762771,
+          "direction": "low",
+          "value": 7.660155446161416
+        },
+        {
+          "feature": "fwd_iat_mean",
+          "label": "average client send interval",
+          "weight": -1.7605441808700562,
+          "deviation_sigma": 0.3000899280378948,
+          "direction": "high",
+          "value": 378.9300016454748
+        }
+      ]
+    },
+    {
+      "true_label": "data_exfiltration",
+      "summary": "Matches 'data_exfiltration' and is 9.8 sigma from normal. Driven by: unusually low average gap between packets (28.2); unusually high average server packet size (922.9); unusually high average packet size (827.6).",
+      "top_features": [
+        {
+          "feature": "flow_iat_mean",
+          "label": "average gap between packets",
+          "weight": -2.8629252910614014,
+          "deviation_sigma": -0.5563391998650784,
+          "direction": "low",
+          "value": 28.20734792342711
+        },
+        {
+          "feature": "bwd_pkt_len_mean",
+          "label": "average server packet size",
+          "weight": -1.8408942222595215,
+          "deviation_sigma": 0.904370407918525,
+          "direction": "high",
+          "value": 922.885911840968
+        },
+        {
+          "feature": "pkt_len_mean",
+          "label": "average packet size",
+          "weight": -1.8257129192352295,
+          "deviation_sigma": 0.7734568323139367,
+          "direction": "high",
+          "value": 827.5561151079137
+        },
+        {
+          "feature": "cert_chain_len",
+          "label": "certificate chain length",
+          "weight": 1.674206018447876,
+          "deviation_sigma": -1.1918308950004541,
+          "direction": "low",
+          "value": 1.0
+        }
+      ]
+    },
+    {
+      "true_label": "data_exfiltration",
+      "summary": "Matches the known family 'data_exfiltration' (p=0.92). Driven by: unusually low regularity of packet timing (17.6); unusually low average gap between packets (17.0); unusually high average client packet size (1,085.9).",
+      "top_features": [
+        {
+          "feature": "flow_iat_std",
+          "label": "regularity of packet timing",
+          "weight": -3.6489596366882324,
+          "deviation_sigma": -0.7586750738624146,
+          "direction": "low",
+          "value": 17.57205558214727
+        },
+        {
+          "feature": "flow_iat_mean",
+          "label": "average gap between packets",
+          "weight": -2.4920146465301514,
+          "deviation_sigma": -0.8264060831833097,
+          "direction": "low",
+          "value": 17.039400120680245
+        },
+        {
+          "feature": "fwd_pkt_len_mean",
+          "label": "average client packet size",
+          "weight": -1.9134223461151123,
+          "deviation_sigma": 1.997258272706031,
+          "direction": "high",
+          "value": 1085.8666666666666
+        },
+        {
+          "feature": "pkt_len_mean",
+          "label": "average packet size",
+          "weight": -1.8361787796020508,
+          "deviation_sigma": 1.1939656418199278,
+          "direction": "high",
+          "value": 946.3125
+        }
+      ]
+    }
+  ]
+}
