@@ -95,10 +95,37 @@ def capture_available() -> tuple[bool, str]:
 
 
 # ---------------------------------------------------------------------------
+def _ensure_link_layer(pkt):
+    """Re-decode a packet scapy handed back as undecoded bytes.
+
+    On Windows with Npcap, scapy can fail to map the pcap link type to a
+    dissector ("Unable to guess datalink type ... linktype=1") and yields every
+    frame as a bare ``Raw`` layer. Capture then looks healthy - packets arrive,
+    no errors - while producing zero flows, because nothing has an IP layer.
+    Linktype 1 is Ethernet, so the frame is simply re-parsed as such.
+    """
+    from scapy.layers.inet import IP
+    from scapy.layers.inet6 import IPv6
+    from scapy.layers.l2 import Ether
+
+    if pkt.haslayer(IP) or pkt.haslayer(IPv6):
+        return pkt
+    try:
+        rebuilt = Ether(bytes(pkt))
+    except Exception:
+        return pkt
+    if rebuilt.haslayer(IP) or rebuilt.haslayer(IPv6):
+        rebuilt.time = getattr(pkt, "time", 0.0)
+        return rebuilt
+    return pkt
+
+
 def _scapy_to_packet(pkt) -> Packet | None:
     """Convert a scapy packet to the internal :class:`Packet`."""
     from scapy.layers.inet import IP, TCP, UDP
     from scapy.layers.inet6 import IPv6
+
+    pkt = _ensure_link_layer(pkt)
 
     if pkt.haslayer(IP):
         ip = pkt[IP]
@@ -196,6 +223,16 @@ class LiveCapture:
 
     def _run(self) -> None:
         from scapy.sendrecv import sniff
+
+        # Make the Ethernet dissector explicit before sniffing, so most frames
+        # decode normally rather than relying on the per-packet fallback above.
+        try:
+            from scapy.config import conf
+            from scapy.layers.l2 import Ether
+
+            conf.l2types.register(1, Ether)          # DLT_EN10MB
+        except Exception:
+            pass
 
         try:
             sniff(

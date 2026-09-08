@@ -263,6 +263,17 @@ that we do not know, and the imputer handles it explicitly.
 * CTU-13 is netflow-only (31 of 65 features, no TLS metadata) and
   CIC-Darknet2020 ships as CICFlowMeter CSV (no TLS metadata either), so
   neither can support the ablation regardless of size.
+* **The trained model does not transfer to modern live traffic.** Captured on
+  a real machine it flagged ordinary HTTPS browsing (wikipedia, github, bbc) as
+  `ddos_flood` and `botnet_menti`, with a 32% alert rate on benign traffic. Two
+  measured causes: **57% of live flows were IPv6 against 0.01% of the training
+  corpus**, and training-benign flows are tiny (median 4 packets / 537 bytes)
+  next to a real page load (median 30 packets / 15.7 KB for the alerted ones),
+  so the autoencoder's notion of "normal" is dominated by small 2011-era
+  netflow records. The capture-to-explanation pipeline works end to end on live
+  traffic; the *training data* is the limitation. Closing this needs a modern,
+  locally captured benign baseline to calibrate Stage 2 against - the
+  `recalibrate()` hook on the anomaly detector exists for exactly this.
 * **Neither ISCX nor CIC-Darknet contains attacks.** ISCX labels traffic *type*;
   CIC-Darknet's positive class is Tor/VPN, i.e. anonymised traffic, not
   intrusion. CTU-13 is the only source here with genuinely malicious traffic.

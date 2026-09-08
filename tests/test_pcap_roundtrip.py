@@ -144,3 +144,56 @@ class TestPcapRoundTrip:
         assert len(verdicts) == len(records)
         assert verdicts["risk"].between(0, 1).all()
         assert set(verdicts["alert"].unique()) <= {0, 1}
+
+
+class TestLinkLayerRecovery:
+    """Scapy on Windows/Npcap can hand back undecoded frames as bare Raw.
+
+    Capture then looks healthy - packets arrive, no errors - while yielding
+    zero flows, because nothing has an IP layer to key on.
+    """
+
+    def _frame(self):
+        from scapy.all import IP, TCP, Ether
+
+        return (Ether(src="02:00:00:00:00:01", dst="02:00:00:00:00:02")
+                / IP(src="10.0.0.5", dst="93.184.216.34")
+                / TCP(sport=44321, dport=443, flags="PA"))
+
+    def test_raw_frame_is_recovered(self):
+        from scapy.all import IP, Raw
+
+        from encids.live.capture import _ensure_link_layer
+
+        undecoded = Raw(bytes(self._frame()))       # what scapy actually returns
+        assert not undecoded.haslayer(IP)
+
+        recovered = _ensure_link_layer(undecoded)
+        assert recovered.haslayer(IP)
+        assert recovered[IP].dst == "93.184.216.34"
+
+    def test_recovered_frame_converts_to_an_internal_packet(self):
+        from scapy.all import Raw
+
+        from encids.live.capture import _scapy_to_packet
+
+        undecoded = Raw(bytes(self._frame()))
+        undecoded.time = 1_700_000_000.0
+
+        pkt = _scapy_to_packet(undecoded)
+        assert pkt is not None, "a recoverable frame must not be dropped"
+        assert pkt.dst_port == 443
+        assert pkt.protocol == 6
+
+    def test_already_decoded_frame_is_returned_unchanged(self):
+        from encids.live.capture import _ensure_link_layer
+
+        frame = self._frame()
+        assert _ensure_link_layer(frame) is frame
+
+    def test_undecodable_payload_does_not_raise(self):
+        from scapy.all import Raw
+
+        from encids.live.capture import _ensure_link_layer
+
+        assert _ensure_link_layer(Raw(b"\x00\x01\x02")) is not None
