@@ -53,9 +53,17 @@ def list_interfaces() -> list[dict[str, str]]:
 
 
 def capture_available() -> tuple[bool, str]:
-    """Can we actually sniff on this machine?  Returns (ok, explanation)."""
+    """Can we actually sniff on this machine?  Returns (ok, explanation).
+
+    Enumerating interface names is NOT sufficient evidence. On Windows scapy
+    lists ``\\Device\\NPF_{...}`` names straight from the registry even when the
+    Npcap driver is absent, so a name-only check reports "capture available"
+    and then every sniff fails with "winpcap is not installed". The presence of
+    a working packet-capture provider has to be checked directly.
+    """
     try:
         from scapy.arch import get_if_list
+        from scapy.config import conf
     except Exception as exc:
         return False, f"scapy not importable: {exc}"
 
@@ -66,6 +74,23 @@ def capture_available() -> tuple[bool, str]:
     if not interfaces:
         return False, ("no capture interfaces found - install Npcap "
                        "(https://npcap.com) on Windows or libpcap on Linux/macOS")
+
+    # Is there a libpcap/Npcap provider behind those names?
+    try:
+        from scapy.arch import libpcap  # noqa: F401
+
+        if not getattr(conf, "use_pcap", False):
+            raise ImportError("libpcap present but not selected")
+    except Exception:
+        import platform
+
+        if platform.system() == "Windows":
+            return False, ("Npcap is not installed - interface names exist but "
+                           "no capture driver is behind them. Install "
+                           "tools/npcap-1.88.exe as Administrator.")
+        return False, ("no libpcap provider - install libpcap "
+                       "(e.g. apt install libpcap0.8)")
+
     return True, f"{len(interfaces)} interface(s) available"
 
 
